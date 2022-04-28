@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
+import DataFetching from "./components/DataFetching";
 
 function App() {
     const adminUser = {
@@ -19,7 +20,7 @@ function App() {
             });
         } else {
             console.log("Details do not match!");
-            setError("Details do not match!");
+            alert(setError("Details do not match!"));
         }
     };
     const Logout = () => {
@@ -38,6 +39,7 @@ function App() {
             ) : (
                 <LoginForm Login={Login} error={error} />
             )}
+            <DataFetching />
         </div>
     );
 }
