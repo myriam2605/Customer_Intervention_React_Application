@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import UserService from "../services/user.service";
 const Home = () => {
-    const [content, setContent] = useState();
-    console.log("Test");
+    const [content, setContent] = useState([]);
 
     useEffect(() => {
         UserService.getPublicContent().then(
             (response) => {
+                console.log("response is:", response);
                 let array = [];
                 for (var k in response.data) {
                     var obj = [];
@@ -23,10 +23,12 @@ const Home = () => {
             }
         );
     }, []);
+
+    console.log("content is :", content);
     return (
         <div className="container">
             <header className="jumbotron">
-                <table class="table">
+                <table className="table align-middle table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Intervention</th>
@@ -37,29 +39,30 @@ const Home = () => {
                             <th scope="col">Result</th>
                             <th scope="col">Report</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {content?.map((item) => (
-                            <tr>
-                                <td>{item[0]}</td>
-                                <td>{item[4]}</td>
-                                <td>{item[5]}</td>
-                                <td>{item[6]}</td>
-                                <td>{item[7]}</td>
-                                <td>{item[8]}</td>
-                                <td>{item[9]}</td>
-                                <td>{item[10]}</td>
-                                <td>
-                                    <button>Delete</button>
-                                    <button>Edit</button>
-                                </td>
-                            </tr>
-                        ))}
+                        {content.length !== 0 &&
+                            content.map((item) => (
+                                <tr>
+                                    <td>{item[0]}</td>
+                                    <td>{item[4]}</td>
+                                    <td>{item[5]}</td>
+                                    <td>{item[6]}</td>
+                                    <td>{item[7]}</td>
+                                    <td>{item[8]}</td>
+                                    <td>{item[9]}</td>
+                                    <td>{item[10]}</td>
+                                    <td>
+                                        <button>Edit</button>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             </header>
-            <button>Create New Intervention</button>
         </div>
     );
 };

@@ -19,7 +19,7 @@ const Login = () => {
     const checkBtn = useRef();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [encrypted_password, setEncrypted_Password] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const onChangeUsername = (e) => {
@@ -30,9 +30,9 @@ const Login = () => {
         const email = e.target.value;
         setEmail(email);
     };
-    const onChangePassword = (e) => {
-        const password = e.target.value;
-        setPassword(password);
+    const onChangeEncrypted_Password = (e) => {
+        const encrypted_password = e.target.value;
+        setEncrypted_Password(encrypted_password);
     };
     const handleLogin = (e) => {
         e.preventDefault();
@@ -40,9 +40,9 @@ const Login = () => {
         setLoading(true);
         form.current.validateAll();
         if (checkBtn.current.context._errors.length === 0) {
-            AuthService.login(username, email, password).then(
+            AuthService.login(username, email, encrypted_password).then(
                 () => {
-                    navigate("/profile");
+                    navigate("/home");
                     window.location.reload();
                 },
                 (error) => {
@@ -84,13 +84,13 @@ const Login = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="encrypted_password">Password</label>
                         <Input
                             type="password"
                             className="form-control"
                             name="password"
-                            value={password}
-                            onChange={onChangePassword}
+                            value={encrypted_password}
+                            onChange={onChangeEncrypted_Password}
                             validations={[required]}
                         />
                     </div>

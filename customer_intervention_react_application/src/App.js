@@ -4,22 +4,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AuthService from "./services/auth.service";
 import Login from "./components/Login";
-// import Register from "./components/Register";
+import Intervention from "./components/Intervention";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
-import BoardModerator from "./components/BoardModerator";
-import BoardAdmin from "./components/BoardAdmin";
+// import BoardModerator from "./components/BoardModerator";
+// import BoardAdmin from "./components/BoardAdmin";
+
 const App = () => {
-    const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-    const [showAdminBoard, setShowAdminBoard] = useState(false);
+    // const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+    // const [showAdminBoard, setShowAdminBoard] = useState(false);
     const [currentUser, setCurrentUser] = useState(undefined);
     useEffect(() => {
         const user = AuthService.getCurrentUser();
         if (user) {
             setCurrentUser(user);
-            setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
-            setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+            /*setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
+            setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));*/
         }
     }, []);
     const logOut = () => {
@@ -37,7 +38,7 @@ const App = () => {
                             Home
                         </Link>
                     </li>
-                    {showModeratorBoard && (
+                    {/* {showModeratorBoard && (
                         <li className="nav-item">
                             <Link to={"/mod"} className="nav-link">
                                 Moderator Board
@@ -50,7 +51,7 @@ const App = () => {
                                 Admin Board
                             </Link>
                         </li>
-                    )}
+                    )} */}
                     {currentUser && (
                         <li className="nav-item">
                             <Link to={"/user"} className="nav-link">
@@ -61,6 +62,11 @@ const App = () => {
                 </div>
                 {currentUser ? (
                     <div className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <Link to={"/intervention"} className="nav-link">
+                                Intervention
+                            </Link>
+                        </li>
                         <li className="nav-item">
                             <Link to={"/profile"} className="nav-link">
                                 {currentUser.username}
@@ -79,24 +85,20 @@ const App = () => {
                                 Login
                             </Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link to={"/register"} className="nav-link">
-                                Sign Up
-                            </Link>
-                        </li> */}
                     </div>
                 )}
             </nav>
             <div className="container mt-3">
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="" element={<Login />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     {/* <Route path="/register" element={<Register />} /> */}
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/user" element={<BoardUser />} />
-                    <Route path="/mod" element={<BoardModerator />} />
-                    <Route path="/admin" element={<BoardAdmin />} />
+                    {/* <Route path="/mod" element={<BoardModerator />} /> */}
+                    {/* <Route path="/admin" element={<BoardAdmin />} /> */}
+                    <Route path="/intervention" element={<Intervention />} />
                 </Routes>
             </div>
         </div>
