@@ -1,0 +1,116 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "user_id": 15,
+            "address_id": 1,
+            "full_name_of_the_company_contact": "Jerald Swaniawski JD",
+            "company_contact_phone": "1-744-036-3942 x7564",
+            "email_of_the_company_contact": "belinda@lemke.org"
+        },
+        {
+            "id": 2,
+            "user_id": 18,
+            "address_id": 2,
+            "full_name_of_the_company_contact": "Augustine Rempel",
+            "company_contact_phone": "972.354.8695",
+            "email_of_the_company_contact": "dreama.kohler@wilderman-hickle.net"
+        },
+        {
+            "id": 3,
+            "user_id": 29,
+            "address_id": 3,
+            "full_name_of_the_company_contact": "Myong Mann",
+            "company_contact_phone": "772.728.1914 x020",
+            "email_of_the_company_contact": "chelsea@kihn-hudson.co"
+        },
+        {
+            "id": 4,
+            "user_id": 35,
+            "address_id": 4,
+            "full_name_of_the_company_contact": "The Hon. Delpha Collier",
+            "company_contact_phone": "1-376-308-1906 x70641",
+            "email_of_the_company_contact": "mark.kozey@block-heathcote.io"
+        },
+        {
+            "id": 5,
+            "user_id": 38,
+            "address_id": 5,
+            "full_name_of_the_company_contact": "Herbert Schowalter",
+            "company_contact_phone": "(605) 370-3721 x07607",
+            "email_of_the_company_contact": "danette@vandervort-walter.info"
+        },
+        {
+            "id": 6,
+            "user_id": 39,
+            "address_id": 6,
+            "full_name_of_the_company_contact": "Gov. Diedra Pfannerstill",
+            "company_contact_phone": "1-937-869-9878 x0259",
+            "email_of_the_company_contact": "felisha.sawayn@macejkovic.org"
+        },
+        {
+            "id": 7,
+            "user_id": 44,
+            "address_id": 7,
+            "full_name_of_the_company_contact": "Amb. Mason Kshlerin",
+            "company_contact_phone": "1-793-003-0869 x8983",
+            "email_of_the_company_contact": "del@hodkiewicz.infodsa"
+        },
+        {
+            "id": 8,
+            "user_id": 50,
+            "address_id": 8,
+            "full_name_of_the_company_contact": "Amb. Abe DuBuque",
+            "company_contact_phone": "1-471-478-5316 x5445",
+            "email_of_the_company_contact": "nestor@homenick-klein.co"
+        },
+        {
+            "id": 9,
+            "user_id": 53,
+            "address_id": 9,
+            "full_name_of_the_company_contact": "Joeann bkle",
+            "company_contact_phone": "1-564-896-2668",
+            "email_of_the_company_contact": "verona@kunze.biz"
+        },
+        {
+            "id": 10,
+            "user_id": 54,
+            "address_id": 10,
+            "full_name_of_the_company_contact": "Bethany Heaney I",
+            "company_contact_phone": "708.451.6611 x2079",
+            "email_of_the_company_contact": "randee_koss@littel.com"
+        },
+        {
+            "id": 11,
+            "user_id": 55,
+            "address_id": 11,
+            "full_name_of_the_company_contact": "Yong Jaskolski MD",
+            "company_contact_phone": "1-129-253-6134",
+            "email_of_the_company_contact": "marlin@koepp-roberts.name"
+        },
+        {
+            "id": 12,
+            "user_id": 57,
+            "address_id": 12,
+            "full_name_of_the_company_contact": "Mason Harvey",
+            "company_contact_phone": "571-959-6135 x2433",
+            "email_of_the_company_contact": "mason@donnelly-skiles.co"
+        },
+        {
+            "id": 13,
+            "user_id": 59,
+            "address_id": 13,
+            "full_name_of_the_company_contact": "Miss Theola Hilpert",
+            "company_contact_phone": "102.814.6903 x64898",
+            "email_of_the_company_contact": "lavonda.hayes@muller.com"
+        },
+        {
+            "id": 14,
+            "user_id": 62,
+            "address_id": 14,
+            "full_name_of_the_company_contact": "Tami Gibson",
+            "company_contact_phone": "188.720.1066 x972",
+            "email_of_the_company_contact": "zella@gleichner.co"
+        }
+    ]
+}
