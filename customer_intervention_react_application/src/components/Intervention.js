@@ -261,9 +261,7 @@ class Intervention extends React.Component {
                 </div>
 
                 <div>
-                    <button type="submit" onClick>
-                        Submit
-                    </button>
+                    <button>Submit</button>
                 </div>
             </div>
         );
