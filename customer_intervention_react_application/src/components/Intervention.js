@@ -10,6 +10,8 @@ class Intervention extends React.Component {
             batteries: [],
             columns: [],
             elevators: [],
+            employees: [],
+            interventions: [],
         };
     }
 
@@ -119,8 +121,73 @@ class Intervention extends React.Component {
             });
     }
 
+    getEmployees() {
+        const API_URL = `https://rocketelevator.me/app/employees/all`;
+        let user = JSON.parse(localStorage.getItem("user"));
+        axios
+            .get(API_URL, {
+                headers: {
+                    jwt: user.jwt,
+                },
+            })
+            .then((response) => {
+                let employees = response.data;
+                let employeeList = [{ id: "item[0]", name: "--Select--" }];
+                if (employees.length === undefined) {
+                    employeeList.push({ id: employees.id, name: `Employee ID: ${employees.id}` });
+                } else {
+                    for (let i = 0; i < employees.length; i++) {
+                        employeeList.push({ id: employees[i].id, name: `Employee ID: ${employees[i].id}` });
+                    }
+                }
+
+                this.setState({
+                    // Call api https://rocketelevator.me/app/elevators/column/id
+                    employees: employeeList,
+                });
+            });
+    }
+
+    // onSubmitHandler = (e) => {
+    //     e.preventDefault();
+    //     this.setState({
+    //         showName: true,
+    //     });
+    //     if (this.state.showName) {
+    //         // submitting the form conditionally with javascript
+    //         document.getElementById("nameForm").submit();
+    //     }
+    // };
+
+    postInterventions() {
+        const API_URL = `https://rocketelevator.me/app/interventions/`;
+        let user = JSON.parse(localStorage.postItem("user"));
+        axios
+            .post(API_URL, {
+                headers: {
+                    jwt: user.jwt,
+                },
+            })
+            .then((response) => {
+                let interventions = response.data;
+                let interventionList = [{ id: "item[0]", name: "--Select--" }];
+                if (interventions.length === undefined) {
+                    interventionList.push({ id: interventions.id, name: `interventions ID: ${interventions.id}` });
+                } else {
+                    for (let i = 0; i < interventions.length; i++) {
+                        interventionList.push({ id: interventions[i].id, name: `interventions ID: ${interventions[i].id}` });
+                    }
+                }
+
+                this.setState({
+                    // Call api https://rocketelevator.me/app/elevators/column/id
+                    interventions: interventionList,
+                });
+            });
+    }
+
     render() {
-        const { buildings, batteries, columns, elevators } = this.state;
+        const { buildings, batteries, columns, elevators, employees, interventions } = this.state;
 
         let buildingList =
             buildings.length > 0 &&
@@ -162,12 +229,42 @@ class Intervention extends React.Component {
                 );
             }, this);
 
+        let employeeList =
+            employees.length > 0 &&
+            employees.map((item, i) => {
+                return (
+                    <option key={i} value={item.id}>
+                        {item.name}
+                    </option>
+                );
+            }, this);
+
+        let interventionList =
+            interventions.length > 0 &&
+            interventions.map((item, i) => {
+                return (
+                    <option key={i} value={item.id}>
+                        {item.name}
+                    </option>
+                );
+            }, this);
+
         return (
             <div>
-                <select onChange={(event) => this.getBatteries(event.target.value)}>{buildingList}</select>
-                <select onChange={(event) => this.getColumns(event.target.value)}>{batteryList}</select>
-                <select onChange={(event) => this.getElevators(event.target.value)}>{columnList}</select>
-                <select onChange={(event) => this.getEmployee(event.target.value)}>{elevatorList}</select>
+                <div>
+                    <select onChange={(event) => this.getBatteries(event.target.value)}>{buildingList}</select>
+                    <select onChange={(event) => this.getColumns(event.target.value)}>{batteryList}</select>
+                    <select onChange={(event) => this.getElevators(event.target.value)}>{columnList}</select>
+                    <select onChange={(event) => this.getEmployees(event.target.value)}>{elevatorList}</select>
+                    <select>{employeeList}</select>
+                    {/* <input>{interventionList}</input> */}
+                </div>
+
+                <div>
+                    <button type="submit" onClick>
+                        Submit
+                    </button>
+                </div>
             </div>
         );
     }
