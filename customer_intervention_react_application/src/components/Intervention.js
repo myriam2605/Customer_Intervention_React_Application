@@ -142,26 +142,15 @@ class Intervention extends React.Component {
                 }
 
                 this.setState({
-                    // Call api https://rocketelevator.me/app/elevators/column/id
+                    // Call api https://rocketelevator.me/app/employees/all
                     employees: employeeList,
                 });
             });
     }
 
-    // onSubmitHandler = (e) => {
-    //     e.preventDefault();
-    //     this.setState({
-    //         showName: true,
-    //     });
-    //     if (this.state.showName) {
-    //         // submitting the form conditionally with javascript
-    //         document.getElementById("nameForm").submit();
-    //     }
-    // };
-
     postInterventions() {
         const API_URL = `https://rocketelevator.me/app/interventions/`;
-        let user = JSON.parse(localStorage.postItem("user"));
+        let user = JSON.parse(localStorage.getItem("user"));
         axios
             .post(API_URL, {
                 headers: {
@@ -180,7 +169,7 @@ class Intervention extends React.Component {
                 }
 
                 this.setState({
-                    // Call api https://rocketelevator.me/app/elevators/column/id
+                    // Call api https://rocketelevator.me/app/interventions
                     interventions: interventionList,
                 });
             });
@@ -257,13 +246,7 @@ class Intervention extends React.Component {
                     <select onChange={(event) => this.getElevators(event.target.value)}>{columnList}</select>
                     <select onChange={(event) => this.getEmployees(event.target.value)}>{elevatorList}</select>
                     <select>{employeeList}</select>
-                    {/* <input>{interventionList}</input> */}
-                </div>
-
-                <div>
-                    <button type="submit" onClick>
-                        Submit
-                    </button>
+                    <button onChange={() => this.target.value}>{interventionList} Submit </button>
                 </div>
             </div>
         );

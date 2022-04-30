@@ -55,7 +55,9 @@ const Home = () => {
                                     <td>{item[9]}</td>
                                     <td>{item[10]}</td>
                                     <td>
-                                        <button>Edit</button>
+                                        <div className="btn-link" to={"/intervention"}>
+                                            <button>Edit</button>{" "}
+                                        </div>
                                         <button>Delete</button>
                                     </td>
                                 </tr>
