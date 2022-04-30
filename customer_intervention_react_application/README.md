@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:8081](http://localhost:8080) to view it in your browser.
+Open [http://localhost:8081](http://localhost:8081) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -33,3 +33,7 @@ The api can be found here: https://rocketelevator.me/.
 ### Deployment :
 
 https://myra-reactapp.herokuapp.com/
+
+### React Project Presentation Video:
+
+https://1drv.ms/u/s!AhFAHmUuQAtXi913NakyyrZ2GFT64Q?e=2f3Jfn
